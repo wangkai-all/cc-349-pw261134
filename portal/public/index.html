@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>交付业务门户（虚构数据）</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>交付业务门户</h1>
+  <span class="tag">虚构数据 · 源数据会持续变化 · 无统一快照</span>
+</header>
+
+<div id="layout">
+  <main>
+    <form id="filter-bar">
+      <label>区域
+        <select id="f-region">
+          <option value="">全部</option>
+        </select>
+      </label>
+      <label>状态
+        <select id="f-status">
+          <option value="">全部</option>
+        </select>
+      </label>
+      <button type="submit">查询</button>
+      <span id="total-label"></span>
+    </form>
+
+    <div class="vhead vrow-grid">
+      <span></span><span>单号</span><span>客户</span><span>区域</span>
+      <span class="num">金额</span><span>状态</span><span>版本</span><span>更新时间</span>
+    </div>
+    <!-- 虚拟滚动容器：DOM 槽位固定，滚动时复用 -->
+    <div id="viewport">
+      <div id="canvas"></div>
+    </div>
+    <p class="hint">提示：列表为虚拟滚动，DOM 槽位会被复用（元素上可见 data-dom-slot 与 data-row-id）。点击行首箭头展开明细。</p>
+  </main>
+
+  <aside>
+    <h2>源数据变化流</h2>
+    <div id="seq-label"></div>
+    <ul id="change-log"></ul>
+    <p class="hint">门户不提供跨接口统一快照：summary 与 details 各自看到当时的版本。</p>
+  </aside>
+</div>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>

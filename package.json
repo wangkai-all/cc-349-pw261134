@@ -1,0 +1,17 @@
+{
+  "name": "pointwise-delivery",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "行展开门户采集演示：门户 / 浏览器采集器 / 核对服务 / 追溯页，全部从零实现，数据虚构",
+  "scripts": {
+    "portal": "node portal/server.js",
+    "verifier": "node verifier/server.js",
+    "collector": "node collector/collector.js",
+    "demo": "node demo/run-demo.js",
+    "test": "node --test 'test/*.test.js'"
+  },
+  "dependencies": {
+    "playwright-core": "^1.57.0"
+  }
+}

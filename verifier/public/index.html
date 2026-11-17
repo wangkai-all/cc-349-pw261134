@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>采集核对 · 逐行追溯</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>采集核对 · 逐行追溯</h1>
+  <span class="tag">金额勾稽仅作参考，不作为明细完整性依据 · 展开失败 ≠ 无明细</span>
+</header>
+
+<div id="layout">
+  <aside>
+    <h2>采集批次</h2>
+    <ul id="batch-list"></ul>
+  </aside>
+
+  <main>
+    <div id="limitation-banner" class="hidden"></div>
+    <div class="note">
+      来源系统不提供统一快照：汇总与明细来自不同接口、各自看到当时版本。
+      核对策略 = 绑定检查（筛选条件 / 展开请求 / 实际返回）+ 行版本一致性 + 反复核对；
+      仍不一致的行保留为"不确定"并展示限制。
+    </div>
+    <table id="rows-table">
+      <thead>
+        <tr>
+          <th>单号</th><th>核对状态</th><th>汇总版本</th><th>明细版本</th>
+          <th>金额勾稽<br><small>（参考）</small></th><th>核对轮次</th><th>限制说明</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+</div>
+
+<div id="drawer" class="hidden">
+  <div id="drawer-head">
+    <strong id="drawer-title"></strong>
+    <button id="drawer-close">关闭</button>
+  </div>
+  <div id="drawer-body"></div>
+</div>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>
